@@ -9,7 +9,7 @@ func Router() *mux.Router {
 	router := mux.NewRouter()
 
 	router.HandleFunc("/api/cards", middleware.GetAllCards).Methods("GET", "OPTIONS")
-	router.HandleFunc("/api/cards/{id}", middleware.GetOneCard).Methods("GET", "OPTIONS")
+	// router.HandleFunc("/api/cards/{id}", middleware.GetOneCard).Methods("GET", "OPTIONS")
 	router.HandleFunc("/api/cards", middleware.CreateCard).Methods("POST", "OPTIONS")
 	router.HandleFunc("/api/cards/{id}", middleware.CardKnown).Methods("PUT", "OPTIONS")
 	router.HandleFunc("/api/cards/{id}", middleware.UndoKnown).Methods("PUT", "OPTIONS")
