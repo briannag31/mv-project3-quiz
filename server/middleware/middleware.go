@@ -8,11 +8,13 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/GoesToEleven/golang-web-dev/042_mongodb/05_mongodb/02_update-user-model/models"
 	"github.com/briannag31/mv-project3-quiz/models"
+	"github.com/gorilla/mux"
 	"github.com/joho/godotenv"
+	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
+	"gopkg.in/mgo.v2/bson"
 )
 
 var collection *mongo.Collection
@@ -112,4 +114,75 @@ func DeleteAllCards (w http.ResponseWriter, r *http.Request){
 
 	deleteAll := deleteAllCards()
 	json.NewEncoder(w).Encode(deleteAll)
+}
+
+func getAllCards() []primitive.M {
+	cur, err := collection.Find(context.Background(), bson.D{{}})
+	if err!=nil{
+		log.Fatal(err)
+	}
+	
+	var results []primitive.M
+	for cur.Next(context.Background()){
+		var result bson.M
+		e := cur.Decode(&result)
+		if e!=nil{
+			log.Fatal(e)
+		}
+		results = append(results, result)
+	}
+	if err := cur.Err(); err != nil {
+		log.Fatal(err)
+	}
+	cur.Close(context.Background())
+	return results
+}
+
+func cardKnown(card string) {
+	id, _ := primitive.ObjectIDFromHex(card)
+	filter := bson.M{"_id": id}
+	update := bson.M{"$set": bson.M{"known": true}}
+	result, err := collection.UpdateOne(context.Background(), filter, update)
+	if err!=nil {
+		log.Fatal(err)
+	}
+	fmt.Println("modified count: ", result.ModifiedCount)
+}
+
+func createCard(card models.Card) {
+	insertResult, err := collection.InsertOne(context.Background(), card)
+	if err!=nil {
+		log.Fatal(err)
+	}
+	fmt.Println("Inserted a single record", insertResult.InsertedID)
+}
+
+func undoKnown(card string) {
+	id, _ := primitive.ObjectIDFromHex(card)
+	filter := bson.M{"_id": id}
+	update := bson.M{"$set": bson.M{"known": false}}
+	result, err := collection.UpdateOne(context.Background(), filter, update)
+	if err!=nil {
+		log.Fatal(err)
+	}
+	fmt.Println("modified count: ", result.ModifiedCount)
+}
+
+func deleteOneCard(card string) {
+	id, _ := primitive.ObjectIDFromHex(card)
+	filter := bson.M{"_id": id}
+	d, err := collection.DeleteOne(context.Background(), filter)
+	if err!=nil {
+		log.Fatal(err)
+	}
+	fmt.Println("deleted item: ", d.DeletedCount)
+}
+
+func deleteAllCards() int64 {
+	d, err := collection.DeleteMany(context.Background(), bson.D{{}}, nil)
+	if err!=nil {
+		log.Fatal(err)
+	}
+	fmt.Println("deleted", d.DeletedCount)
+	return d.DeletedCount
 }

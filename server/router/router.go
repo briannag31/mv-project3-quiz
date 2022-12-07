@@ -4,7 +4,7 @@ import (
 	"github.com/briannag31/mv-project3-quiz/middleware"
 	"github.com/gorilla/mux"
 )
-
+// Future enhancement: delete by collection
 func Router() *mux.Router {
 	router := mux.NewRouter()
 
