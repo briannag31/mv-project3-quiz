@@ -1,5 +1,4 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "./components/Header"
 import Footer from "./components/Footer"
 import Nav from "./components/Nav"
@@ -17,7 +16,7 @@ function App() {
     answer: "",
     known: false
   })
-  console.log(cards[0])
+
 
   const url = "http://localhost:3001/api"
 
@@ -44,16 +43,20 @@ function App() {
       <New  
         cards={cards}
         setCards={setCards}
+        addCard={addCard}
         setAddCard={setAddCard}
         card={card}
         setCard={setCard}
         newCard={newCard}
         setNewCard={setNewCard}
+        fetchCards={fetchCards}
         /> 
         :
         <Index 
+        fetchCards={fetchCards}
         cards={cards}
         setCards={setCards}
+        addCard={addCard}
         setAddCard={setAddCard}
         card={card}
         setCard={setCard}
