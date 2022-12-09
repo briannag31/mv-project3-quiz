@@ -1,5 +1,5 @@
 import React from "react";
-export default function Index({cards, setCards, setAddCard,card,setCard,newCard, setNewCard, addCard, fetchCards}){
+export default function Index({setViewCards,cards, setCards, setAddCard,card,setCard,newCard, setNewCard, addCard, fetchCards}){
     const url = "http://localhost:3001/api"
 
     const deleteCard = async (id) =>{
@@ -14,6 +14,7 @@ export default function Index({cards, setCards, setAddCard,card,setCard,newCard,
       }
   return (  <>
     <button onClick={()=>setAddCard(true)}>Add a New Card</button>
+    <button onClick={()=>setViewCards(false)}>Go Back Home</button>
   <div>
    { cards.map((individualCard, idx) =>{
     let border = "solid red"
