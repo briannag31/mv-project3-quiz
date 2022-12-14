@@ -1,6 +1,7 @@
+
 /* body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: -apple-system; BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -15,21 +16,166 @@ code {
 /* * { box-sizing: border-box} */
 /* html, body { height: 100%; } */
 body{
-  background-image: url(./images/2.png);
+  background-image: url(./images/3.png);
   background-size:cover;
   background-repeat: no-repeat;
-  width: 100%;
+  height: 100%;
 }
-.card {
-  background-image:
-    linear-gradient(180deg, white 3rem, #F0A4A4 calc(3rem), #F0A4A4 calc(3rem + 2px), transparent 1px),
-    repeating-linear-gradient(0deg, transparent, transparent  1.5rem, grey 1px, grey calc(1.5rem + 1px));
-  box-shadow: 1px 1px 3px rgba(0,0,0,.25);
-  height: 14rem;
-  width: 400px;
+
+.cardFont{
+  font-size: 35px;
+}
+.plainCard {
+  border: 6px solid;
+  border-radius: 16px;
   background-color: white;
-  margin: auto;
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
+  padding: 20px;
+  margin: 20px;
+  width: 400px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+}
+.hello{
+  justify-content: center;
+  margin-bottom: 70px;
+  /* margin-top: 170px; */
+}
+
+.align-row{
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.align-column{
+  justify-content: space-between;
+  flex-direction: column;
+  width: 300px;
+  height: 200px;
+}
+.home-button{
+  color: white;
+  border-radius: 16px;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 32px;
+  margin: 4px 80px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  background-color: white; 
+  color: black; 
+  border: 4px solid #caf0f8;
+}
+nav{
+  color: #0077b6;
+  background-color: white;
+  height: 5vh; 
+  text-align:end; 
+  font-size: 30px; 
+  font-weight: bolder;
+  width: 100%;  
+  padding-right: 45px; 
+  height: 7vh; 
+  
+}
+
+.nav-text{
+  padding-top: 8px;
+}
+
+.card-button{
+  width: 50%;
+  height: 30%;
+}
+.card-topic {
+  font-size: 13px;
+  line-height: 20px;
+  border: 1px solid #d7d7d7;
+  border-radius: 3px;
+  box-shadow: none;
+}
+.card-topic .card-body {
+  padding: 25px;
+}
+.card-topic .card-body .card-title {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  margin-bottom: 8px;
+}
+.card-topic .card-body p {
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
+}
+.card-topic .card-body p:last-child {
+  margin-bottom: 0;
+}
+.card-topic .card-footer {
+  background: #f6f6f6;
+  border-top: 1px solid #d7d7d7;
+  padding: 0;
+  text-align: center;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+.card-topic .card-footer .col-6:first-child {
+  border-right: 1px solid #d7d7d7;
+  padding-right: 0;
+}
+.card-topic .card-footer .col-6:first-child .btn-link {
+  border-bottom-left-radius: 3px;
+}
+.card-topic .card-footer .col-6:last-child {
+  padding-left: 0;
+}
+.card-topic .card-footer .col-6:last-child .btn-link {
+  border-bottom-right-radius: 3px;
+}
+.card-topic .card-footer .btn-link {
+  background: #f6f6f6;
+  width: 100%;
+  padding: 10px;
+  font-size: 13px;
+  line-height: 20px;
+  color: #505050;
+  font-weight: 600;
+  text-decoration: none;
+}
+.card-topic .card-footer .btn-link:hover, .card-topic .card-footer .btn-link:focus {
+  background: #f1f1f1;
+  color: #00748b;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
+
+.close-button{
+  background-color: red;
+  margin-right: -80px;
+  margin-top: -10px;
+}
+.close-button-back{
+  background-color: red;
+  margin-right: -20px;
+  margin-top: -60px;
+}
+
+.ans{
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.form-title{
+  color: white;
+  font-size: 55px;
+  margin-top: 110px;
+  text-align: center;
 }

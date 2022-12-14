@@ -8,11 +8,7 @@ export default function New({cards, setCards, setAddCard,card,setCard,newCard, s
     }
     const url = "http://localhost:3001/api"
 
-    const handleCancel = async()=>{
-        // const res = await(url)
-        // const data = await res.json()
-        setAddCard(false)
-    }
+   
 
     const createCard = async(cardData)=>{
         try{
@@ -43,35 +39,22 @@ export default function New({cards, setCards, setAddCard,card,setCard,newCard, s
     }
 
     return<>
+    <h1 className="form-title">Add A New Card</h1>
     <form onSubmit={handleSubmit}>
-        <div>
-            <div> 
-                <input type="text" placeholder="Collection Name" name="collection" value={newCard.collection} onChange={handleChange}/>
-            </div>  
-            <div> 
-                <input type="text" placeholder="Vocab Term" name="term" value={newCard.term} onChange={handleChange}/>
+        <div className="form-group">
+            <div className="form-floating"> 
+                <input className="form-control" id="floatingTerm" type="text" placeholder="Term" name="term" value={newCard.term} onChange={handleChange}/>
+                <label for="floatingTerm">Term</label>
             </div>
-            <div>
-            <input type="text"  placeholder="Answer" name="answer" value={newCard.answer} onChange={handleChange}/>
-
+            <div className="form-floating ans">
+            <input className="form-control" id="floatingAnswer" type="text"  placeholder="Answer" name="answer" value={newCard.answer} onChange={handleChange}/>
+            <label for="floatingAnswer">Answer</label>
             </div>
-            <div> 
-                <p>Do you know this term?</p>
-                <label>
-                    <input  type="radio" value={newCard.known} checked={true} onChange={handleChange}/>
-                    no
-                </label>
-            </div>
-            <div> 
-            <label>
-                    <input  type="radio" value={newCard.known}  onChange={handleChange}/>
-                    yes
-                </label>
-            </div>
-            <button type="submit" className="btn btn-success">Add New Card</button>
+            <button style={{width:"100%"}} type="submit" className="btn btn-success">Add New Card</button>
         </div>
+
     </form>
-    <button style={{width: "100%", marginTop: "20px"}} className="btn btn-danger" onClick={() => handleCancel()}>Cancel</button>
+    <button style={{width:"100%", marginTop: "20px"}}  className="btn btn-danger" onClick={() => setAddCard(false)}>Cancel</button>
     </>
 
 }

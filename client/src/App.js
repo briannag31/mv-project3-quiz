@@ -14,6 +14,8 @@ function App() {
   const [addCard, setAddCard] = useState(false)
   const [viewCards, setViewCards] = useState(false)
   const [viewDecks, setViewDecks] = useState(false)
+  const [decks, setDecks] = useState([])
+  const [deck, setDeck] = useState(null)
   const [newCard, setNewCard] = useState({
     collection: "",
     term:"",
@@ -25,21 +27,35 @@ function App() {
 
   async function fetchCards(){
     try{
-      const res = await fetch(`${url}/cards`)
-      const data = await res.json()
-      setCards(data)
+      const resCards = await fetch(`${url}/cards`)
+      const dataCards = await resCards.json()
+      setCards(dataCards)
+      const resDecks = await fetch(`${url}/decks`)
+      const dataDecks = await resDecks.json()
+      setDecks(dataDecks)
     } catch(err){
       console.log(err)
     }
   }
-
+  // async function fetchDecks(){
+  //   try{
+  //     const resDecks = await fetch(`${url}/categories`)
+  //     const dataDecks = await resDecks.json()
+  //     setDecks(dataDecks)
+  //   } catch(err){
+  //     console.log(err)
+  //   }
+  // }
   useEffect(() =>{
     fetchCards()
   }, [])
   return (
 
     <div className="App">
-      <Nav />
+      <Nav
+      addCard={addCard}
+      setAddCard={setAddCard}
+       />
       <Header />
       {addCard ?
       <New
@@ -72,11 +88,14 @@ function App() {
        cards={cards}
        setCards={setCards}
        addCard={addCard}
+       card={card}
+       decks={decks}
+       setDecks={setDecks}
        setAddCard={setAddCard}
        setViewCards={setViewCards}
        setViewDecks={setViewDecks}
-       card={card}
-       setCard={setCard}
+       deck={deck}
+       setDeck={setDeck}
        newCard={newCard}
        setNewCard={setNewCard}
        fetchCards={fetchCards} /> 
