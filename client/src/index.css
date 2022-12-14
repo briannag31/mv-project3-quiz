@@ -1,22 +1,7 @@
 
-/* body {
-  margin: 0;
-  font-family: -apple-system; BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-} */
-
-/* * { box-sizing: border-box} */
-/* html, body { height: 100%; } */
 body{
-  background-image: url(./images/3.png);
+  background-image: url(./images/6.png);
   background-size:cover;
   background-repeat: no-repeat;
   height: 100%;
@@ -39,7 +24,6 @@ body{
 .hello{
   justify-content: center;
   margin-bottom: 70px;
-  /* margin-top: 170px; */
 }
 
 .align-row{
@@ -82,68 +66,15 @@ nav{
 }
 
 .nav-text{
-  padding-top: 8px;
+  /* padding-top: 8px; */
+  margin-top: -50px;
 }
 
 .card-button{
   width: 50%;
   height: 30%;
 }
-.card-topic {
-  font-size: 13px;
-  line-height: 20px;
-  border: 1px solid #d7d7d7;
-  border-radius: 3px;
-  box-shadow: none;
-}
-.card-topic .card-body {
-  padding: 25px;
-}
-.card-topic .card-body .card-title {
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 20px;
-  margin-bottom: 8px;
-}
-.card-topic .card-body p {
-  font-weight: normal;
-  font-size: 14px;
-  line-height: 20px;
-}
-.card-topic .card-body p:last-child {
-  margin-bottom: 0;
-}
-.card-topic .card-footer {
-  background: #f6f6f6;
-  border-top: 1px solid #d7d7d7;
-  padding: 0;
-  text-align: center;
-  border-bottom-left-radius: 3px;
-  border-bottom-right-radius: 3px;
-}
-.card-topic .card-footer .col-6:first-child {
-  border-right: 1px solid #d7d7d7;
-  padding-right: 0;
-}
-.card-topic .card-footer .col-6:first-child .btn-link {
-  border-bottom-left-radius: 3px;
-}
-.card-topic .card-footer .col-6:last-child {
-  padding-left: 0;
-}
-.card-topic .card-footer .col-6:last-child .btn-link {
-  border-bottom-right-radius: 3px;
-}
-.card-topic .card-footer .btn-link {
-  background: #f6f6f6;
-  width: 100%;
-  padding: 10px;
-  font-size: 13px;
-  line-height: 20px;
-  color: #505050;
-  font-weight: 600;
-  text-decoration: none;
-}
+
 .card-topic .card-footer .btn-link:hover, .card-topic .card-footer .btn-link:focus {
   background: #f1f1f1;
   color: #00748b;
@@ -182,4 +113,20 @@ nav{
 
 .green-border{
   border-color: green;
+}
+
+.full-logo{
+  margin: auto;
+}
+.owl{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 20%;
+}
+
+.owl-logo{
+ 
+  height: 95%;
+  
 }

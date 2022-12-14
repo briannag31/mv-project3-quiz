@@ -37,15 +37,6 @@ function App() {
       console.log(err)
     }
   }
-  // async function fetchDecks(){
-  //   try{
-  //     const resDecks = await fetch(`${url}/categories`)
-  //     const dataDecks = await resDecks.json()
-  //     setDecks(dataDecks)
-  //   } catch(err){
-  //     console.log(err)
-  //   }
-  // }
   useEffect(() =>{
     fetchCards()
   }, [])
@@ -55,6 +46,7 @@ function App() {
       <Nav
       addCard={addCard}
       setAddCard={setAddCard}
+      setViewCards={setViewCards}
        />
       <Header />
       {addCard ?
@@ -120,14 +112,3 @@ function App() {
 
 export default App;
 
-   // <Index 
-        // fetchCards={fetchCards}
-        // cards={cards}
-        // setCards={setCards}
-        // addCard={addCard}
-        // setAddCard={setAddCard}
-        // card={card}
-        // setCard={setCard}
-        // newCard={newCard}
-        // setNewCard={setNewCard}
-        // />
